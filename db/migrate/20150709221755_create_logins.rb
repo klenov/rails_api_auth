@@ -21,7 +21,7 @@ class CreateLogins < ActiveRecord::Migration
 
       case option_name
       when :id
-        result.merge( RailsApiAuth.primary_key_options || {} )
+        result.merge!( RailsApiAuth.primary_key_options || {} )
       end
 
       result
