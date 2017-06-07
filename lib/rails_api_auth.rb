@@ -57,6 +57,10 @@ module RailsApiAuth
   # currently only accepts :uuid
   mattr_accessor :primary_key_type
 
+  # @!attribute [rw] primary_key_options
+  # Configures database column options used for primary keys
+  mattr_accessor :primary_key_options
+
   # @!attribute [rw] force_ssl
   # Force SSL for Oauth2Controller; defaults to `false` for the development environment, otherwise `true`
   mattr_accessor :force_ssl

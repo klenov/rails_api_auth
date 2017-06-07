@@ -17,7 +17,14 @@ class CreateLogins < ActiveRecord::Migration
   private
 
     def primary_key_options(option_name)
-      RailsApiAuth.primary_key_type ? { option_name => RailsApiAuth.primary_key_type } : {}
+      result = RailsApiAuth.primary_key_type ? { option_name => RailsApiAuth.primary_key_type } : {}
+
+      case option_name
+      when :id
+        result.merge( RailsApiAuth.primary_key_options || {} )
+      end
+
+      result
     end
 
 end
